@@ -27,7 +27,7 @@
 //! - Unstable (do not use it in any ways, only at your own risk): ⚠️
 //!
 //! ## [list of commands](https://apidoc.whatsminer.com/):
-//! - [ ] [get.device.custom_data](https://apidoc.whatsminer.com/#api-Device-device_get_custom_data)
+//! - [x] [get.device.custom_data](https://apidoc.whatsminer.com/#api-Device-device_get_custom_data)
 //! - [x] ✅ [get.device.info](https://apidoc.whatsminer.com/#api-Device-device_get_info)
 //! - [ ] [set.device.custom_data](https://apidoc.whatsminer.com/#api-Device-device_set_custom_data)
 //! - [ ] [get.fan.setting](https://apidoc.whatsminer.com/#api-Fan-btminer_get_fansettings)
@@ -66,6 +66,7 @@
 //! - [ ] [set.user.change_passwd](https://apidoc.whatsminer.com/#api-User-user_set_passwd)
 //! - [ ] [set.user.permission](https://apidoc.whatsminer.com/#api-User-user_set_permission)
 
+pub mod get_device_custom_data;
 pub mod get_device_info;
 pub mod set_miner_fastboot;
 pub mod set_miner_pools;

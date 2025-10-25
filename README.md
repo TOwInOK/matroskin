@@ -33,7 +33,7 @@ Marks:
 - Unstable (do not use it in any ways, only at your own risk): ⚠️
 ---
 [list of commands](https://apidoc.whatsminer.com/):
-- [ ] [get.device.custom_data](https://apidoc.whatsminer.com/#api-Device-device_get_custom_data)
+- [x] [get.device.custom_data](https://apidoc.whatsminer.com/#api-Device-device_get_custom_data)
 - [x] ✅ [get.device.info](https://apidoc.whatsminer.com/#api-Device-device_get_info)
 - [ ] [set.device.custom_data](https://apidoc.whatsminer.com/#api-Device-device_set_custom_data)
 - [ ] [get.fan.setting](https://apidoc.whatsminer.com/#api-Fan-btminer_get_fansettings)
