@@ -3,7 +3,7 @@ name = "matroskin"
 description = """
 whatsminer api client lib
 """
-version = "0.0.2"
+version = "0.0.3"
 edition = "2024"
 readme = "README.md"
 authors = ["TOwInOK <60252419+TOwInOK@users.noreply.github.com>"]
