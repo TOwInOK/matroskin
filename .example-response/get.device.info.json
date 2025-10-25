@@ -1,0 +1,64 @@
+{
+  "code": 0,
+  "when": 1761111204,
+  "msg": {
+    "network": {
+      "ip": "10.10.10.**",
+      "proto": "dhcp",
+      "netmask": "255.255.255.0",
+      "dns": "10.10.10.**",
+      "mac": "**:**:**:**:**:**",
+      "gateway": "10.10.10.*",
+      "hostname": "WhatsMiner"
+    },
+    "miner": {
+      "working": "true",
+      "type": "M50_VH84",
+      "hash-board": "H84",
+      "detect-hash-rate": "40***:41***:40***",
+      "cointype": "BTC/BCH/BSV",
+      "pool-strategy": "FAILOVER",
+      "heatmode": "",
+      "hash-percent": "",
+      "chipdata0": "H3LA03-******** BINVE2-*******",
+      "chipdata1": "H3LA03-******** BINVE2-*******",
+      "chipdata2": "H3LA03-******** BINVE2-*******",
+      "fast-boot": "disable",
+      "board-num": "3",
+      "pcbsn0": "HHM**X*F******X*****",
+      "pcbsn1": "HHM**X*F******X*****",
+      "pcbsn2": "HHM**X*F******X*****",
+      "miner-sn": "HTM**X**KU*****************A*****",
+      "power-limit-set": "",
+      "UpfreqSpeed": "",
+      "web-pool": 1,
+      "permission": "super=255 user1=0 user2=0 user3=0"
+    },
+    "system": {
+      "api": "3.0.2",
+      "platform": "H616",
+      "fwversion": "20250915.16.Rel2",
+      "control-board-version": "CB6V10",
+      "apiswitch": "1",
+      "ledstatus": "auto"
+    },
+    "power": {
+      "type": "P221B",
+      "mode": "1",
+      "hwversion": "V00.**",
+      "swversion": "V02.**.V02.**",
+      "model": "P221B",
+      "iin": 15.43,
+      "vin": 231.5,
+      "vout": 1222,
+      "pin": 3573,
+      "fanspeed": 4992,
+      "temp0": 79,
+      "sn": "A****G**********",
+      "vendor": "7"
+    },
+    "salt": "I*D*C***",
+    "error-code": []
+  },
+  "desc": "get.device.info"
+}
