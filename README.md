@@ -43,7 +43,7 @@ Marks:
 - [ ] [get.log.download](https://apidoc.whatsminer.com/#api-Log-syslog_download)
 - [ ] [set.log.upload](https://apidoc.whatsminer.com/#api-Log-syslog_upload)
 - [ ] [get.miner.history](https://apidoc.whatsminer.com/#api-Miner-btminer_get_history)
-- [ ] [get.miner.setting](https://apidoc.whatsminer.com/#api-Miner-btminer_get_settings)
+- [x] [get.miner.setting](https://apidoc.whatsminer.com/#api-Miner-btminer_get_settings)
 - [ ] [get.miner.status](https://apidoc.whatsminer.com/#api-Miner-btminer_get_status)
 - [ ] [set.miner.cointype](https://apidoc.whatsminer.com/#api-Miner-btminer_set_cointype)
 - [x] ✅ [set.miner.fastboot](https://apidoc.whatsminer.com/#api-Miner-btminer_set_fastboot)

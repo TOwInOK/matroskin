@@ -43,6 +43,7 @@ pub struct GetDeviceCustomData;
 
 /// [GetDeviceCustomData] Response
 #[derive(Debug, Default, Deserialize)]
+#[serde(rename_all = "kebab-case")]
 pub struct GetDeviceCustomDataResponse {
     pub custom_sn: String,
     pub msg0: String,
