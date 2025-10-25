@@ -1,3 +1,8 @@
+//! Provides functions for processing commands by sending data to and receiving responses from a TCP stream.
+//!
+//!- Item: [process], [process_unknown]
+//!
+//! It's just send/read layer
 use tokio::net::TcpStream;
 use tracing::{debug, instrument};
 
@@ -10,20 +15,17 @@ use crate::{
     error::Result,
 };
 
-/// Send builded data and return mapped response to gived stream
 #[instrument(level = "debug", skip(stream, data))]
 /// Execute some data into Actor
 ///
 /// You are need specify the Command
 pub async fn process<C: Command>(stream: &mut TcpStream, data: &[u8]) -> Result<C::Response> {
-    debug!("Processing command: {}.", C::CMD_NAME);
-    debug!("Sending data for command {}.", C::CMD_NAME);
+    debug!(cmd=%C::CMD_NAME, "Processing command.",);
     send(stream, data).await?;
-    debug!("Data sent. Reading response for command {}.", C::CMD_NAME);
+    debug!(cmd=%C::CMD_NAME,"Data sent. Reading response for command.");
     read::<C>(stream).await
 }
 
-/// Send builded data and return mapped response to gived stream
 #[instrument(level = "debug", skip(stream, data))]
 /// Execute some data into Actor
 ///

@@ -1,8 +1,41 @@
+//! Implement `set.miner.fastboot` command
+//!
+//! This command is used to set the fastboot flag [SetMinerPoolsParam] for the miner.\
+//!
+//! - Command: [SetMinerFastboot]
+//! - ApiDoc: <https://apidoc.whatsminer.com/#api-Miner-btminer_set_fastboot>
 use core::str;
 
 use crate::{command::Command, error::Result, response::Response};
 
-/// Command to set miner fastboot
+/// This command represents the `set.miner.fastboot` operation.
+///
+/// It is used to set the fastboot flag for the miner.
+///
+/// - ApiDoc: <https://apidoc.whatsminer.com/#api-Miner-btminer_set_fastboot>
+///
+/// # Example
+/// ```rust,ignore
+/// use waru::actor::Actor;
+/// use waru::command::set_miner_fastboot::{SetMinerFastboot};
+/// use waru::account::Account;
+/// use waru::password::Password;
+///
+/// #[tokio::main]
+/// async fn main() -> Result<(), Box<dyn std::error::Error>> {
+///     let addr = "10.10.10.10:4433";
+///     let username = Account::Super;
+///     let password = Password::Super;
+///
+///     let actor = Actor::new(addr, username, password).await?;
+///
+///     let cmd = SetMinerFastboot(true); // Enable fastboot
+///     let response = actor.send(&cmd).await?;
+///     println!("Response: {:#?}", response);
+///
+///     Ok(())
+/// }
+///
 #[derive(Debug, Default)]
 pub struct SetMinerFastboot(SetMinerPoolsParam);
 
@@ -22,11 +55,7 @@ impl Command for SetMinerFastboot {
 #[cfg(test)]
 mod set_miner_fastboot {
 
-    use crate::{
-        account::{Account, Password},
-        actor::Actor,
-        auth_data::AuthData,
-    };
+    use crate::{account::Account, actor::Actor, auth_data::AuthData, password::Password};
 
     use super::*;
 
@@ -50,15 +79,12 @@ mod set_miner_fastboot {
 
     #[tokio::test]
     async fn send_to_miner() {
-        let actor = Actor::new(
-            "1.1.1.1:4433",
-            crate::account::Account::Super,
-            crate::account::Account::Super,
-        )
-        .await
-        .unwrap();
+        let actor = Actor::new("1.1.1.1:4433", Account::Super, Password::Super)
+            .await
+            .unwrap();
         let cmd = SetMinerFastboot(false);
         let a = cmd.execute(&actor).await.unwrap();
+        actor.send(&cmd).await.unwrap();
         println!("{:#?}", a)
     }
 }

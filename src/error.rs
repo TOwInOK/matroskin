@@ -1,3 +1,4 @@
+//! Declares errors what can happened in program
 use hex::FromHexError;
 use thiserror::Error;
 use tokio::sync::mpsc::error::SendError;

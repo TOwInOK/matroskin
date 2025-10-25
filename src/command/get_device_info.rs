@@ -1,14 +1,63 @@
+//! Implement `get.device.info` command
+//!
+//! It is used to retrieve [DeviceInfo] about the ASIC device.
+//!
+//! - Command: [GetDeviceInfo]
+//! - ApiDoc: <https://apidoc.whatsminer.com/#api-Device-device_get_info>
+
 use std::collections::HashMap;
 
 use serde::{Deserialize, Serialize};
 
 use crate::{command::Command, error::Result, response::Response};
 
-/// Command to get device info
+/// This command represents the `get.device.info` operation.
+///
+/// It is used to retrieve [DeviceInfo] about the ASIC device.
+///
+/// - ApiDoc:  <https://apidoc.whatsminer.com/#api-Device-device_get_info>
+///
+/// # Example
+/// ```rust,ignore
+/// use waru::actor::Actor;
+/// use waru::account::Account;
+/// use waru::password::Password;
+/// use waru::command::get_device_info::{GetDeviceInfo, GetDeviceInfoParam};
+///
+/// #[tokio::main]
+/// async fn main() -> Result<(), Box<dyn std::error::Error>> {
+///     let addr = "10.10.10.10:4433";
+///     let username = Account::Super;
+///     let password = Password::Super;
+///
+///     let actor = Actor::new(addr, username, password).await?;
+///
+///     // Example 1: Get all device info (default behavior)
+///     let command = GetDeviceInfo::default();
+///     let response = actor.send(&command).await?;
+///     println!("All Device Info: {:#?}", response);
+///
+///     // Example 2: Get only network and system info
+///     let command = GetDeviceInfo(GetDeviceInfoParam {
+///         network: true,
+///         system: true,
+///         miner: false,
+///         power: false,
+///         salt: false,
+///         error_code: false,
+///     });
+///     let response = actor.send(&command).await?;
+///     println!("Network and System Info: {:#?}", response);
+///
+///     Ok(())
+/// }
+/// ```
 #[derive(Debug, Default)]
 pub struct GetDeviceInfo(pub GetDeviceInfoParam);
 
-/// Parameters for the GetDeviceInfo command
+/// Parameters for the `get.device.info` command.
+///
+/// - ApiDoc: <https://apidoc.whatsminer.com/#api-Device-device_get_info>
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "kebab-case")]
 pub struct GetDeviceInfoParam {
@@ -23,6 +72,8 @@ pub struct GetDeviceInfoParam {
     /// Include salt information
     pub salt: bool,
     /// Include error code information
+    ///
+    /// - List of errors: <https://www.whatsminer.com/src/views/firmware-download.html#Document>
     pub error_code: bool,
 }
 impl Default for GetDeviceInfoParam {
@@ -82,7 +133,9 @@ impl Command for GetDeviceInfo {
     }
 }
 
-/// Response containing device information
+/// Response structure containing various information about the ASIC device.
+///
+/// - ApiDoc: <https://apidoc.whatsminer.com/#api-Device-device_get_info>
 #[derive(Debug, PartialEq, Deserialize)]
 #[serde(rename_all = "kebab-case")]
 pub struct DeviceInfo {
@@ -100,6 +153,8 @@ pub struct DeviceInfo {
     /// Error codes
     ///
     /// Expect reason and number of error
+    ///
+    /// - List of errors: <https://www.whatsminer.com/src/views/firmware-download.html#Document>
     pub error_codes: Option<Vec<HashMap<String, String>>>,
 }
 
@@ -230,4 +285,39 @@ pub struct Power {
     pub sn: String,
     /// Vendor ID
     pub vendor: String,
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::{account::Account, actor::Actor, password::Password};
+
+    use super::*;
+
+    #[tokio::test]
+    async fn request() -> Result<()> {
+        let addr = "10.10.10.10:4433";
+        let username = Account::Super;
+        let password = Password::Super;
+
+        let actor = Actor::new(addr, username, password).await?;
+
+        // Example 1: Get all device info (default behavior)
+        let command = GetDeviceInfo::default();
+        let response = actor.send(&command).await?;
+        println!("All Device Info: {:#?}", response);
+
+        // Example 2: Get only network and system info
+        let command = GetDeviceInfo(GetDeviceInfoParam {
+            network: true,
+            system: true,
+            miner: false,
+            power: false,
+            salt: false,
+            error_code: false,
+        });
+        let response = actor.send(&command).await?;
+        println!("Network and System Info: {:#?}", response);
+
+        Ok(())
+    }
 }

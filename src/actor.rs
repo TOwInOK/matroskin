@@ -1,3 +1,14 @@
+//! Define actor module
+//!
+//! Restrictions:
+//! - alive about 300 secs if idle
+//! - api switch should be turned on (lib can't do that)
+//!     - download official tool for that <https://www.whatsminer.com/src/views/firmware-download.html#Tool>
+//! - miner should be at actual version <3.0.0
+//!     - firmware <https://www.whatsminer.com/src/views/firmware-download.html#Firmware>
+//!
+//! - Item: [Actor]
+//! - ApiDoc: <https://apidoc.whatsminer.com/#api-TCP_Translate_Protocol-tcp_protocol>
 pub mod message;
 pub mod process;
 pub mod read;
@@ -14,7 +25,7 @@ use tracing::{debug, error, info, instrument, warn};
 use zeroize::{Zeroize, ZeroizeOnDrop};
 
 use crate::{
-    account::{Account, Password},
+    account::Account,
     actor::{
         message::ActorMessage,
         process::{process, process_unknown},
@@ -25,10 +36,18 @@ use crate::{
         get_device_info::{GetDeviceInfo, GetDeviceInfoParam},
     },
     error::{Error, Result},
+    password::Password,
 };
 
 #[derive(Debug, Zeroize, ZeroizeOnDrop)]
 /// Active connection with ASIC
+///
+/// Restrictions:
+/// - alive about 300 secs if idle
+/// - api switch should be turned on (lib can't do that)
+///     - download official tool for that <https://www.whatsminer.com/src/views/firmware-download.html#Tool>
+/// - miner should be at actual version <3.0.0
+///     - firmware <https://www.whatsminer.com/src/views/firmware-download.html#Firmware>
 pub struct Actor {
     #[zeroize(skip)]
     pub username: Account,
@@ -38,6 +57,7 @@ pub struct Actor {
     pub tx: tokio::sync::mpsc::Sender<ActorMessage>,
 }
 
+// TODO: add command is_alive(). It should send heartbeat data [0x00,0x00,0x00,0x00]
 impl Actor {
     #[instrument(level = "info", skip(addr, username, password), fields(addr = %addr))]
     /// Make connection to ASIC
@@ -51,7 +71,7 @@ impl Actor {
         let (tx, rx) = mpsc::channel(10);
         info!(%addr, "Connecting to TCP stream.");
         let mut stream = TcpStream::connect(&addr).await?;
-        debug!(%addr, "TCP stream connected. Setting nodelay.");
+        debug!(%addr, "TCP stream connected. Setting no delay.");
         stream.nodelay()?;
         info!(%addr, "Getting actor salt.");
         let salt = get_actor_salt(&mut stream).await?;
@@ -113,7 +133,7 @@ async fn run_actor(mut rx: Receiver<ActorMessage>, mut stream: TcpStream, addr: 
     info!("Actor worker started for address: {}.", addr);
     '_worker: loop {
         select! {
-            // TODO: Add reconection logic
+            // TODO: Add reconnection logic
             Some(msg) = rx.recv() => {
                 debug!(%addr, "Actor: received command from channel.");
 

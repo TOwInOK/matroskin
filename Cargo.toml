@@ -20,13 +20,6 @@ sha256 = "1.6.0"
 zeroize = { version = "1.8.2", features = ["derive", "serde"] }
 
 thiserror = "2.0.17"
-tokio = { version = "1.48.0", features = ["time",  "net", "sync", "tracing", "rt-multi-thread", "macros"] }
+tokio = { version = "1.48.0", features = ["time",  "net", "sync", "tracing", "macros", "rt-multi-thread"] }
 tracing = "0.1.41"
 tracing-subscriber = { version = "0.3.20", features = ["env-filter", "fmt"] }
-
-[dev-dependencies]
-tokio = { version = "1.48.0", features = ["rt-multi-thread", "macros"] }
-cbc = { version = "0.1", features = ["zeroize"] }
-
-[build-dependencies]
-tokio = { version = "1.48.0", features = ["rt-multi-thread", "macros"] }

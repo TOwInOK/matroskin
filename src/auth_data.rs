@@ -1,3 +1,7 @@
+//! Define Auth Data module
+//!
+//! - Item: [AuthData]
+//! - ApiDoc: <https://apidoc.whatsminer.com/#api-Token-generate_token>
 use aes::Aes256;
 use aes::cipher::{BlockEncrypt, KeyInit};
 use base64_light::base64_encode_bytes;
@@ -5,6 +9,7 @@ use base64_light::base64_encode_bytes;
 use cipher::generic_array::GenericArray;
 use serde::Serialize;
 use sha256::digest;
+use std::fmt::{Debug, Display};
 use std::time::{SystemTime, UNIX_EPOCH};
 use zeroize::{Zeroize, ZeroizeOnDrop};
 
@@ -19,11 +24,12 @@ use crate::error::{Error, Result};
 /// It is a unique peer command
 pub struct AuthData {
     /// time when pushed
-    ts: u64,
+    pub ts: u64,
     /// Auth miner token
     ///
     /// It generated from 'command'+'account's password'+'salt'+'ts'
-    /// https://apidoc.whatsminer.com/#api-Token-generate_token
+    ///
+    /// - ApiDoc: <https://apidoc.whatsminer.com/#api-Token-generate_token>
     token: String,
     /// Account username
     #[zeroize(skip)]
@@ -34,7 +40,18 @@ pub struct AuthData {
     aes_key: Vec<u8>,
 }
 
-impl<'a, 'b> AuthData {
+impl Display for AuthData {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("AuthData")
+            .field("ts", &self.ts)
+            .field("username", &self.username)
+            .field("token", &"<hidden>")
+            .field("aes_key", &"<hidden>")
+            .finish()
+    }
+}
+
+impl<'a> AuthData {
     /// Generate auth data
     pub fn new<C: Command>(
         username: Account,
@@ -48,6 +65,8 @@ impl<'a, 'b> AuthData {
         let ts = since_the_epoch.as_secs();
 
         // generate sha256 hex from data and convert it to base64
+        //
+        // - ApiDoc:
         // https://apidoc.whatsminer.com/#api-Token-generate_token
         let input_to_hash = format!("{}{}{}{}", C::CMD_NAME, password.as_ref(), salt, ts);
         let sha256_hex_digest = digest(input_to_hash);

@@ -1,3 +1,4 @@
+//! Define message module for communication between actor and another process
 use tokio::sync::oneshot;
 
 use crate::error::Result;

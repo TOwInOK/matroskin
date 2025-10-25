@@ -1,3 +1,8 @@
+//! This module provides functions for reading data from a TCP stream
+//! - when the command type is known and unknown.
+//!
+//!- Item: [read], [read_unknown]
+//! - ApiDoc: <https://apidoc.whatsminer.com/#api-TCP_Translate_Protocol-tcp_protocol>
 use tokio::{
     io::{self, AsyncReadExt},
     net::TcpStream,
@@ -8,6 +13,9 @@ use crate::{command::Command, error::Result};
 
 #[instrument(level = "debug", skip(stream))]
 /// Read the stream when we can know command type
+///
+/// - ApiDoc:
+/// <https://apidoc.whatsminer.com/#api-TCP_Translate_Protocol-tcp_protocol>
 pub async fn read<C: Command>(stream: &mut TcpStream) -> Result<<C as Command>::Response> {
     debug!("Reading response for known command: {}.", C::CMD_NAME);
     let raw_response = read_unknown(stream).await?;
@@ -20,6 +28,9 @@ pub async fn read<C: Command>(stream: &mut TcpStream) -> Result<<C as Command>::
 
 #[instrument(level = "debug", skip(stream))]
 /// Read the stream when we can't know command type at compile time
+///
+/// - ApiDoc:
+/// <https://apidoc.whatsminer.com/#api-TCP_Translate_Protocol-tcp_protocol>
 pub async fn read_unknown(stream: &mut TcpStream) -> Result<String> {
     debug!("Reading unknown response from stream.");
     const MAX_BUF: usize = 8192;
