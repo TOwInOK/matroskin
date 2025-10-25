@@ -1,9 +1,14 @@
 [package]
 name = "waru"
-description = "whatsminer api client lib"
+description = """
+whatsminer api client lib
+"""
 version = "0.0.0"
 edition = "2024"
-license = "AGPL-3.0"
+
+authors = ["TOwInOK <60252419+TOwInOK@users.noreply.github.com>"]
+repository = "https://github.com/TOwInOK/waru"
+license = "MIT OR Apache-2.0"
 keywords = ["whatsminer", "api", "client", "mining", "blockchain"]
 categories = ["api-bindings", "network-programming"]
 
@@ -23,3 +28,9 @@ thiserror = "2.0.17"
 tokio = { version = "1.48.0", features = ["time",  "net", "sync", "tracing", "macros", "rt-multi-thread"] }
 tracing = "0.1.41"
 tracing-subscriber = { version = "0.3.20", features = ["env-filter", "fmt"] }
+
+
+[package.metadata.docs.rs]
+all-features = true
+features = ["all"]
+rustdoc-args = ["--html-in-header", ".content/favicon.html"]

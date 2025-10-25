@@ -1,4 +1,8 @@
+#![doc(html_favicon_url = ".content/favicon.ico")]
+
 //! # `waru`
+//!
+//! WhatsMiner v3 ApiDoc: <https://apidoc.whatsminer.com>
 //!
 //! `waru` is a Rust library designed for interacting with WhatsMiner devices.
 //! It provides an asynchronous API to send commands and receive responses from WhatsMiner hardware,
@@ -16,7 +20,7 @@
 //! #[tokio::main]
 //! async fn main() {
 //!     // 0. (Optional) init logger
-//!         use tracing_subscriber::FmtSubscriber;
+//!     use tracing_subscriber::FmtSubscriber;
 //!     tracing::subscriber::set_global_default(
 //!         FmtSubscriber::builder()
 //!             .compact()

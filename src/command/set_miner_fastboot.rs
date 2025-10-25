@@ -37,7 +37,7 @@ use crate::{command::Command, error::Result, response::Response};
 /// }
 ///
 #[derive(Debug, Default)]
-pub struct SetMinerFastboot(SetMinerPoolsParam);
+pub struct SetMinerFastboot(pub SetMinerPoolsParam);
 
 /// Type alias for the fastboot parameter (enable/disable)
 pub type SetMinerPoolsParam = bool;

@@ -26,6 +26,7 @@ words = [
     "pkcs",
     "serde",
     "swversion",
+    "tokio",
     "upfreq",
     "vin",
     "vout",
