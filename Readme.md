@@ -10,14 +10,14 @@
 
 [![Crates.io][crates-badge]][crates-url]
 [![MIT licensed][mit-badge]][mit-url]
-[![Apache licensed][Apache2-badge]][mit-url]
+[![Apache licensed][Apache2-badge]][Apache2-url]
 
 [crates-badge]: https://img.shields.io/crates/v/matroskin.svg
 [crates-url]: https://crates.io/crates/matroskin
 [mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[mit-url]: https://github.com/tokio-rs/tokio/blob/master/LICENSE-MIT
+[mit-url]: https://github.com/TOwInOK/matroskin/blob/main/LICENSE-MIT.md
 [Apache2-badge]: https://img.shields.io/badge/license-Apache2.0-blue.svg
-[mit-url]: https://github.com/tokio-rs/tokio/blob/master/LICENSE-APACHE
+[Apache2-url]: https://github.com/TOwInOK/matroskin/blob/main/LICENSE-APACHE.md
 
 ## Overview
 
