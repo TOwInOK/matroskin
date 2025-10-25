@@ -1,6 +1,6 @@
 <div align="center">
     <h1>matroskin</h1>
-    <img src="https://github.com/TOwInOK/matroskin/blob/main/.content/logo.webp"/>
+    <img src="https://raw.githubusercontent.com/TOwInOK/matroskin/refs/heads/main/.content/logo.webp"/>
     <p><i>Library for interacting with WhatsMiner ASIC miners.</i></p>
     <p><i><b>⚠️ Currently under active development ⚠️</b></i></p>
 
@@ -21,7 +21,7 @@
 
 ## Overview
 
-matroskin is an actor-tokio based library for creating tool for ASIC infrastructure.
+matroskin is an actor-tokio based library for creating tools for ASIC infrastructure.
 It provides:
 * Easy to use Actor system
 * Build in commands

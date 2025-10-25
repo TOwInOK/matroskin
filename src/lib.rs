@@ -1,4 +1,8 @@
-#![doc(html_favicon_url = ".content/favicon.ico")]
+#![cfg_attr(docsrs, feature(doc_cfg))]
+#![doc(
+    html_logo_url = "https://raw.githubusercontent.com/TOwInOK/matroskin/refs/heads/main/.content/logo.webp",
+    html_favicon_url = "https://raw.githubusercontent.com/TOwInOK/matroskin/refs/heads/main/.content/favicon.ico"
+)]
 
 //! # `matroskin`
 //!
