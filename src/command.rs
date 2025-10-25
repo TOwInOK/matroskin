@@ -25,6 +25,7 @@
 //! ## Marks:
 //! - Ready to use: ✅
 //! - Unstable (do not use it in any ways, only at your own risk): ⚠️
+//! - without marks: not tested, only at your own risk
 //!
 //! ## [list of commands](https://apidoc.whatsminer.com/):
 //! - [x] [get.device.custom_data](https://apidoc.whatsminer.com/#api-Device-device_get_custom_data)
