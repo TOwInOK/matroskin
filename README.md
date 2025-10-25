@@ -1,6 +1,6 @@
 <div align="center">
     <h1>matroskin</h1>
-    <img src=".content/logo.webp"/>
+    <img src="https://github.com/TOwInOK/matroskin/blob/main/.content/logo.webp"/>
     <p><i>Library for interacting with WhatsMiner ASIC miners.</i></p>
     <p><i><b>⚠️ Currently under active development ⚠️</b></i></p>
 
