@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>Waru</h1>
+    <h1>matroskin</h1>
     <img src=".content/logo.webp"/>
     <p><i>Library for interacting with WhatsMiner ASIC miners.</i></p>
     <p><i><b>⚠️ Currently under active development ⚠️</b></i></p>
@@ -12,8 +12,8 @@
 [![MIT licensed][mit-badge]][mit-url]
 [![Apache licensed][Apache2-badge]][mit-url]
 
-[crates-badge]: https://img.shields.io/crates/v/waru.svg
-[crates-url]: https://crates.io/crates/waru
+[crates-badge]: https://img.shields.io/crates/v/matroskin.svg
+[crates-url]: https://crates.io/crates/matroskin
 [mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [mit-url]: https://github.com/tokio-rs/tokio/blob/master/LICENSE-MIT
 [Apache2-badge]: https://img.shields.io/badge/license-Apache2.0-blue.svg
@@ -21,7 +21,7 @@
 
 ## Overview
 
-Waru is an actor-tokio based library for creating tool for ASIC infrastructure.
+matroskin is an actor-tokio based library for creating tool for ASIC infrastructure.
 It provides:
 * Easy to use Actor system
 * Build in commands
@@ -76,7 +76,7 @@ Marks:
 ```toml
 [dependencies]
 tokio = { version = "1.48.0", features = ["full"] }
-waru = { version = "0" }
+matroskin = { version = "0" }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
 ```
@@ -85,7 +85,7 @@ Then, on your main.rs:
 
 ```rust,no_run
 use tracing::Level;
-use waru::{
+use matroskin::{
     account::Account,
     actor::Actor,
     command::{Command, set_miner_fastboot::SetMinerFastboot},

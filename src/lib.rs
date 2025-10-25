@@ -1,10 +1,10 @@
 #![doc(html_favicon_url = ".content/favicon.ico")]
 
-//! # `waru`
+//! # `matroskin`
 //!
 //! WhatsMiner v3 ApiDoc: <https://apidoc.whatsminer.com>
 //!
-//! `waru` is a Rust library designed for interacting with WhatsMiner devices.
+//! `matroskin` is a Rust library designed for interacting with WhatsMiner devices.
 //! It provides an asynchronous API to send commands and receive responses from WhatsMiner hardware,
 //! facilitating monitoring and control functionalities.
 //!
@@ -14,8 +14,8 @@
 //! # Usage Example
 //!
 //! ```rust,ignore
-//! use waru::actor::{Actor, Account, Password};
-//! use waru::command::SetMinerFastboot;
+//! use matroskin::actor::{Actor, Account, Password};
+//! use matroskin::command::SetMinerFastboot;
 //!
 //! #[tokio::main]
 //! async fn main() {

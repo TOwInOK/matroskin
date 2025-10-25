@@ -5,7 +5,7 @@
 //! ### Example
 //! - example command [SetMinerFastboot]
 //! ```
-//! use waru::{command::Command, error::Result, response::Response};
+//! use matroskin::{command::Command, error::Result, response::Response};
 //! #[derive(Debug, Default)]
 //! pub struct SetMinerFastboot(SetMinerPoolsParam);
 //!
@@ -90,7 +90,7 @@ use tracing::{debug, trace};
 /// # Example
 /// - example command [SetMinerFastboot]
 /// ```
-/// use waru::{command::Command, error::Result, response::Response};
+/// use matroskin::{command::Command, error::Result, response::Response};
 /// #[derive(Debug, Default)]
 /// pub struct SetMinerFastboot(SetMinerPoolsParam);
 ///

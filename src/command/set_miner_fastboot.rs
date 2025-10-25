@@ -16,10 +16,10 @@ use crate::{command::Command, error::Result, response::Response};
 ///
 /// # Example
 /// ```rust,ignore
-/// use waru::actor::Actor;
-/// use waru::command::set_miner_fastboot::{SetMinerFastboot};
-/// use waru::account::Account;
-/// use waru::password::Password;
+/// use matroskin::actor::Actor;
+/// use matroskin::command::set_miner_fastboot::{SetMinerFastboot};
+/// use matroskin::account::Account;
+/// use matroskin::password::Password;
 ///
 /// #[tokio::main]
 /// async fn main() -> Result<(), Box<dyn std::error::Error>> {

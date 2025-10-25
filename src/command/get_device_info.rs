@@ -19,10 +19,10 @@ use crate::{command::Command, error::Result, response::Response};
 ///
 /// # Example
 /// ```rust,ignore
-/// use waru::actor::Actor;
-/// use waru::account::Account;
-/// use waru::password::Password;
-/// use waru::command::get_device_info::{GetDeviceInfo, GetDeviceInfoParam};
+/// use matroskin::actor::Actor;
+/// use matroskin::account::Account;
+/// use matroskin::password::Password;
+/// use matroskin::command::get_device_info::{GetDeviceInfo, GetDeviceInfoParam};
 ///
 /// #[tokio::main]
 /// async fn main() -> Result<(), Box<dyn std::error::Error>> {

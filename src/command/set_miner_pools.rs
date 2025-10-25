@@ -20,10 +20,10 @@ use crate::{command::Command, error::Result, response::Response};
 ///
 /// ## Example
 /// ```rust,ignore
-/// use waru::actor::Actor;
-/// use waru::account::Account;
-/// use waru::password::Password;
-/// use waru::command::set_miner_pools::{SetMinerPools, SetMinerPoolsParam};
+/// use matroskin::actor::Actor;
+/// use matroskin::account::Account;
+/// use matroskin::password::Password;
+/// use matroskin::command::set_miner_pools::{SetMinerPools, SetMinerPoolsParam};
 /// #[tokio::main]
 /// async fn main() -> Result<(), Box<dyn std::error::Error>> {
 ///     let actor = Actor::new("1.1.1.1:4433", Account::Super, Password::Super).await?;
@@ -32,7 +32,7 @@ use crate::{command::Command, error::Result, response::Response};
 ///
 ///     pools.push(SetMinerPoolsParamItem {
 ///         pool: "stratum+tcp://1.1.1.1:3333".to_string(),
-///         worker: "waru.777".to_string(),
+///         worker: "matroskin.777".to_string(),
 ///         password: "test".to_string(),
 ///     });
 ///
@@ -101,7 +101,7 @@ mod set_miner_fastboot {
         let mut pools = SetMinerPoolsParam::new();
         pools.push(SetMinerPoolsParamItem {
             pool: "stratum+tcp://1.1.1.1:3333".to_string(),
-            worker: "waru.777".to_string(),
+            worker: "matroskin.777".to_string(),
             password: "test".to_string(),
         });
 
