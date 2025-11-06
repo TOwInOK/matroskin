@@ -8,11 +8,11 @@ jobs:
   lint-and-push:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: stable
-          override: true
+          components: clippy
       - run: cargo clippy -v
       - uses: katyo/publish-crates@v2
         with:
