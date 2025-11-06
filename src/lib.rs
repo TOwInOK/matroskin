@@ -1,8 +1,6 @@
 #![cfg_attr(docsrs, feature(doc_cfg))]
-#![doc(
-    html_logo_url = "https://raw.githubusercontent.com/TOwInOK/matroskin/refs/heads/main/.content/logo.webp",
-    html_favicon_url = "https://raw.githubusercontent.com/TOwInOK/matroskin/refs/heads/main/.content/favicon.ico"
-)]
+#![doc(html_favicon_url = "/logo.ico")]
+#![doc(html_logo_url = "/logo.webp")]
 
 //! # `matroskin`
 //!
