@@ -2,7 +2,7 @@
     <h1>matroskin</h1>
     <img src="https://raw.githubusercontent.com/TOwInOK/matroskin/refs/heads/main/.content/logo.webp"/>
     <p><i>Library for interacting with WhatsMiner ASIC miners.</i></p>
-    <p><i><b>⚠️ Currently under active development ⚠️</b></i></p>
+    <p><i><b>⚠️ Currently under development ⚠️</b></i></p>
 
 </div>
 
