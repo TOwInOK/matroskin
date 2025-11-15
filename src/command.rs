@@ -41,6 +41,7 @@
 //! - [x] [get.miner.setting](https://apidoc.whatsminer.com/#api-Miner-btminer_get_settings)
 //! - [ ] [get.miner.status](https://apidoc.whatsminer.com/#api-Miner-btminer_get_status)
 //! - [ ] [set.miner.cointype](https://apidoc.whatsminer.com/#api-Miner-btminer_set_cointype)
+//! - [ ] [set.miner.fast_hash](https://apidoc.whatsminer.com/#api-Miner-set_fast_mining)
 //! - [x] ✅ [set.miner.fastboot](https://apidoc.whatsminer.com/#api-Miner-btminer_set_fastboot)
 //! - [ ] [set.miner.heat_mode](https://apidoc.whatsminer.com/#api-Miner-btminer_set_heat_mode)
 //! - [x] ⚠️ [set.miner.pools](https://apidoc.whatsminer.com/#api-Miner-btminer_set_pools)
