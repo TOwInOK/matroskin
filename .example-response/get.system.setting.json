@@ -1,0 +1,18 @@
+{
+  "code": 0,
+  "when": 1766168299,
+  "msg": {
+    "web-pool": 1,
+    "timezone": "CST-8",
+    "zonename": "Asia/Shanghai",
+    "hostname": "WhatsMiner",
+    "time-randomized": { "start": 0, "stop": 0 },
+    "ntp-server": [
+      "0.cn.pool.ntp.org",
+      "0.openwrt.pool.ntp.org",
+      "0.asia.pool.ntp.org",
+      "0.pool.ntp.org"
+    ]
+  },
+  "desc": "get.system.setting"
+}

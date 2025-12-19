@@ -72,6 +72,7 @@ pub mod get_device_custom_data;
 pub mod get_device_info;
 pub mod get_fan_settings;
 pub mod get_miner_setting;
+pub mod get_system_setting;
 pub mod set_miner_fastboot;
 pub mod set_miner_pools;
 
