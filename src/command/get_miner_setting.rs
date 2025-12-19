@@ -47,9 +47,21 @@ pub struct GetMinerSettings;
 pub struct GetMinerSettingsResponse {
     pub power_limit: i64,
     pub upfreq_speed: i64,
+    // TODO: Make enum with power mode types
     pub power_mode: String,
+    // TODO: swap to `bool` type,
+    // create bool <--> string converter
     pub fast_boot: String,
     pub target_freq: i64,
+    // TODO: swap to `bool` type,
+    // create bool <--> string converter
+    //
+    // since 3.0.3v
+    pub fast_mining: Option<String>,
+    // since 3.0.3v
+    pub power: Option<i64>,
+    // since 3.0.3v
+    pub power_percent: Option<i64>,
 }
 
 impl Command for GetMinerSettings {
@@ -58,5 +70,31 @@ impl Command for GetMinerSettings {
     const CMD_NAME: &'static str = "get.miner.setting";
     fn params(&self) -> Result<Option<String>> {
         Ok(None)
+    }
+}
+
+#[cfg(test)]
+mod set_miner_fastboot {
+
+    use crate::{account::Account, actor::Actor, password::Password};
+
+    use super::*;
+
+    #[test]
+    fn view() {
+        let cmd = GetMinerSettings::default();
+        let c = serde_json::to_string_pretty(&cmd.to_request(None).unwrap()).unwrap();
+        assert_eq!(c, "{\n  \"cmd\": \"get.miner.setting\"\n}")
+    }
+
+    #[tokio::test]
+    async fn to_miner() {
+        let actor = Actor::new("10.10.10.20:4433", Account::Super, Password::Super)
+            .await
+            .unwrap();
+        let cmd = GetMinerSettings;
+        let a = cmd.execute(&actor).await.unwrap();
+        actor.send(&cmd).await.unwrap();
+        println!("{:#?}", a)
     }
 }
