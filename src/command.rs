@@ -54,7 +54,7 @@
 //! - [ ] [set.miner.service](https://apidoc.whatsminer.com/#api-Miner-btminer_service_set)
 //! - [ ] [set.miner.target_freq](https://apidoc.whatsminer.com/#api-Miner-btminer_set_targetfreq)
 //! - [ ] [set.miner.upfreq_speed](https://apidoc.whatsminer.com/#api-Miner-btminer_upfreq_speed)
-//! - [ ] [get.system.setting](https://apidoc.whatsminer.com/#api-System-btminer_get_systemsettings)
+//! - [x] ✅ [get.system.setting](https://apidoc.whatsminer.com/#api-System-btminer_get_systemsettings)
 //! - [ ] [set.system.factory_reset](https://apidoc.whatsminer.com/#api-System-system_factory_reset)
 //! - [ ] [set.system.hostname](https://apidoc.whatsminer.com/#api-System-system_set_hostname)
 //! - [ ] [set.system.led](https://apidoc.whatsminer.com/#api-System-system_set_led)
