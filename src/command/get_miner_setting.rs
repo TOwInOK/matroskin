@@ -74,7 +74,7 @@ impl Command for GetMinerSettings {
 }
 
 #[cfg(test)]
-mod set_miner_fastboot {
+mod get_miner_setting {
 
     use crate::{account::Account, actor::Actor, password::Password};
 

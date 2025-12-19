@@ -288,7 +288,7 @@ pub struct Power {
 }
 
 #[cfg(test)]
-mod tests {
+mod get_device_info {
     use crate::{account::Account, actor::Actor, password::Password};
 
     use super::*;
