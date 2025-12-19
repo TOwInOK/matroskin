@@ -31,7 +31,7 @@
 //! - [x] [get.device.custom_data](https://apidoc.whatsminer.com/#api-Device-device_get_custom_data)
 //! - [x] ✅ [get.device.info](https://apidoc.whatsminer.com/#api-Device-device_get_info)
 //! - [ ] [set.device.custom_data](https://apidoc.whatsminer.com/#api-Device-device_set_custom_data)
-//! - [ ] [get.fan.setting](https://apidoc.whatsminer.com/#api-Fan-btminer_get_fansettings)
+//! - [x] ✅ [get.fan.setting](https://apidoc.whatsminer.com/#api-Fan-btminer_get_fansettings)
 //! - [ ] [set.fan.poweroff_cool](https://apidoc.whatsminer.com/#api-Fan-btminer_poweroff_cool)
 //! - [ ] [set.fan.temp_offset](https://apidoc.whatsminer.com/#api-Fan-fan_set_temp_offset)
 //! - [ ] [set.fan.zero_speed](https://apidoc.whatsminer.com/#api-Fan-btminer_zero_speed)
@@ -70,6 +70,7 @@
 
 pub mod get_device_custom_data;
 pub mod get_device_info;
+pub mod get_fan_settings;
 pub mod get_miner_setting;
 pub mod set_miner_fastboot;
 pub mod set_miner_pools;
